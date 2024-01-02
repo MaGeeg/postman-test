@@ -23,7 +23,7 @@
 									"\r",
 									"pm.test(\"Response has required field - access_token\", function() {\r",
 									"    pm.response.to.be.json;\r",
-									"    pm.expect(pm.response.access_token).to.exist;\r",
+									"    pm.expect(pm.response.json().access_token).to.exist;\r",
 									"});\r",
 									"\r",
 									"if (pm.response.code === 200) {\r",
