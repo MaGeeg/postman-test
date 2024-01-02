@@ -17,6 +17,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"pm.test(\"Response status is 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has required field - access_token\", function() {\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.expect(pm.response.access_token).to.exist;\r",
+									"});\r",
+									"\r",
 									"if (pm.response.code === 200) {\r",
 									"    pm.environment.set('token', pm.response.json().access_token);\r",
 									"}\r",
