@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "580de1fa-af4d-482e-8e62-838f1e898e47",
+		"name": "GAD CI Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20153070",
+		"_collection_link": "https://dark-spaceship-756896.postman.co/workspace/Gregory~812a6d8c-d2a1-4e86-8e44-d44a7956ddd5/collection/20153070-580de1fa-af4d-482e-8e62-838f1e898e47?action=share&source=collection_link&creator=20153070"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "logging",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    pm.environment.set('token', pm.response.json().access_token);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
